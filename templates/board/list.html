@@ -1,0 +1,29 @@
+{% extends "board/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    <h3>
+      
+        Feedback List
+    </h3>
+{% endblock title %}
+
+{% block content %}
+
+        <a href="/board/create">+ Create New</a>
+    </p>
+
+    <table class="table">
+        <tr><th>Id</th><th>Name</th><th>Email</th><th>Comment</th></tr>
+        {% for item in boards %}
+            <tr>
+                <td>
+                        <a href="/board/edit/{{ item.id }}">{{ item.id }}</a>
+                </td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.comment }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
